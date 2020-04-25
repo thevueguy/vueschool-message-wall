@@ -4,6 +4,9 @@
     <message-form @messageSubmitted="pushMessage" />
     <message-list :messages="messages" />
   </div>
+  <div v-else>
+    Loading auth...
+  </div>
 </template>
 
 <script>
