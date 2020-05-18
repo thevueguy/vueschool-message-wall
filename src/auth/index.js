@@ -26,27 +26,10 @@ export const useAuth0 = ({
         isAuthenticated: false,
         user: {},
         auth0Client: null,
-        popupOpen: false,
         error: null
       };
     },
     methods: {
-      /** Authenticates the user using a popup window */
-      async loginWithPopup(o) {
-        this.popupOpen = true;
-
-        try {
-          await this.auth0Client.loginWithPopup(o);
-        } catch (e) {
-          // eslint-disable-next-line
-          console.error(e);
-        } finally {
-          this.popupOpen = false;
-        }
-
-        this.user = await this.auth0Client.getUser();
-        this.isAuthenticated = true;
-      },
       /** Handles the callback when logging in using a redirect */
       async handleRedirectCallback() {
         this.loading = true;
@@ -61,21 +44,8 @@ export const useAuth0 = ({
         }
       },
       /** Authenticates the user using the redirect method */
-      loginWithRedirect(o) {
+      login(o) {
         return this.auth0Client.loginWithRedirect(o);
-      },
-      /** Returns all the claims present in the ID token */
-      getIdTokenClaims(o) {
-        return this.auth0Client.getIdTokenClaims(o);
-      },
-      /** Returns the access token. If the token is invalid or missing, a new one is retrieved */
-      getTokenSilently(o) {
-        return this.auth0Client.getTokenSilently(o);
-      },
-      /** Gets the access token using a popup window */
-
-      getTokenWithPopup(o) {
-        return this.auth0Client.getTokenWithPopup(o);
       },
       /** Logs the user out and removes their session on the authorization server */
       logout(o) {

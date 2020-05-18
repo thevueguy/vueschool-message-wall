@@ -31,7 +31,7 @@ export default {
       this.message = "";
     },
     login() {
-      this.$auth.loginWithRedirect();
+      this.$auth.login();
     },
   },
 };
