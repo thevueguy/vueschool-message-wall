@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4" v-if="!$auth.loading">
-    <the-header />
+    <message-header />
     <message-form @messageSubmitted="pushMessage" />
     <message-list :messages="messages" />
   </div>
@@ -11,12 +11,12 @@
 
 <script>
 import MessageForm from "@/components/MessageForm.vue";
-import TheHeader from "@/components/TheHeader.vue";
+import MessageHeader from "@/components/MessageHeader.vue";
 import MessageList from "@/components/MessageList.vue";
 export default {
   name: "home",
   components: {
-    TheHeader,
+    MessageHeader,
     MessageForm,
     MessageList,
   },

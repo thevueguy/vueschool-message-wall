@@ -10,10 +10,6 @@
         Send
       </button>
     </form>
-    <p v-if="!$auth.isAuthenticated">
-      Please
-      <a href="#" @click="login">log in</a> to write a message
-    </p>
   </div>
 </template>
 

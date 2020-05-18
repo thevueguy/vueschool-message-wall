@@ -1,6 +1,6 @@
 <template>
   <div class="mt-4">
-    <h2>Message Wall</h2>
+    <h2>Messages</h2>
     <div class="card mb-4" v-for="(message, index) in messages" :key="index">
       <div class="card-body">
         {{ message }}
